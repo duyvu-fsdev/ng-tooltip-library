@@ -1,0 +1,32 @@
+<div
+  class="tooltip-wrapper"
+  [ngStyle]="{ position: 'relative', display: 'inline-block' }"
+>
+  <ng-content></ng-content>
+  <div
+    class="tooltip-container"
+    [ngClass]="position || 'bottom'"
+    [ngStyle]="{
+      top: top,
+      left: left,
+      visibility: visible ? 'visible' : 'hidden'
+    }"
+  >
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-content">{{ option.text }}</div>
+  </div>
+  <div
+    class="init-tooltip-container"
+    [ngClass]="option.position || 'bottom'"
+    [ngStyle]="{
+      top: initTop,
+      left: initLeft,
+      visibility: 'hidden'
+    }"
+  >
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-content">
+      {{ option.text }} {{ initTop }}{{ initLeft }}
+    </div>
+  </div>
+</div>
